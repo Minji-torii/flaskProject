@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+     #signIn{
+       height: 100vh;
+    background: url('../static/img/serviceBack1.png') no-repeat center;
+    background-size: cover;
+    }
+    .navbar {
+    overflow: hidden;
+
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+}
+
+.demo a {
+    color: #fff;
+    text-decoration: none;
+}
+/* Links inside the navbar */
+.navbar a {
+  font-family: sansita;
+  font-size: 1.2rem;
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 25px;
+  text-decoration: none;
+}
+
+/* Change background on mouse-over */
+    .navbar a:hover {
+      background: #ddd;
+      color: black;
+    }
+
+    .homeimg{
+      width: 65%;
+    }
+
+   .logo{
+            display: flex;
+            z-index: 1;
+            position: absolute;
+            width: 99%;
+        }
+
+  .logoimg{
+        width: 34%;
+        }
+
+    .button-87.a{
+    margin-top: 20%;
+    background-image: linear-gradient(45deg, #ed44e4 0%, #ffe3b1 51%, #a458e5 100%);
+    left: 0;
+    margin-left: 0;
+    padding: 13px 70px;
+}
+
+.button-87:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.button-87:active {
+  transform: scale(0.95);
+}
+
+.button-87 {
+    padding: 15px 110px;
+    position: absolute;
+    top: 80%;
+    transform: translate(-50%);
+    left: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 45px;
+    display: block;
+    border: 0px;
+    font-family: sansita;
+    font-size: 2rem;
+    /* font-weight: 700; */
+    box-shadow: 0px 0px 14px -7px #ffc571;
+    background-image: linear-gradient(45deg, #7C3400 0%, #271A00 51%, #7C3400 100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+.imgUpload{
+        background: white;
+    width: 20%;
+    height: 49%;
+    FONT-WEIGHT: 200;
+    margin: 0 auto;
+    border-radius: 30px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 24%;
+}
+.plz{
+    z-index: 3;
+    position: absolute;
+}
+.col-auto{
+    z-index: 3;
+    position: absolute;
+}
+</style>
+<section id="signIn" class="demo">
+    <div class="navbar">
+        <a class="link-3" href="#section02">SIGN IN</a>
+        <a class="link-3" href="#section02">CONTACT</a>
+        <a class="link-3" href="#section02">ABOUT</a>
+        <a class="link-3" href="#section02">HOW TO</a>
+        <a class="link-3" href="#section02">SERVICES</a>
+        <a class="link-3" href="#first"><img src="../static/img/home.png" class="homeimg"></a>
+
+    </div>
+    <div class="logo">
+        <img class="logoimg" src='../static/img/logoFinal.png'>
+    </div>
+    {% if file_url %}
+{#                <!-이미지 디스플레이 div>#}
+            <div class="imgUpload">
+                <img src="{{ file_url }}" style="width: 400px;">
+            </div>
+
+    {% endif %}
+    <button class="button-87" role="button" ><a href="#section02">CHECK!</a></button>
+
+  <form method="post" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }}
+
+                    {% for error in form.photo.errors %}
+                        <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        {{  form.photo(class="form-control") }}
+                    </div>
+                    <div class="col-auto">
+                        {{  form.submit(class="btnbtn-success") }}
+                    </div>
+                </div>
+
+                </form>
+
+</section>
+</body>
+</html>
