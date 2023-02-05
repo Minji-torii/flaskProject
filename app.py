@@ -1,4 +1,6 @@
 from flask import Flask, render_template, send_from_directory, url_for, request
+import requests
+import json
 
 from flask_uploads import UploadSet, IMAGES, configure_uploads
 from flask_wtf import FlaskForm
@@ -14,6 +16,9 @@ app.config['UPLOADED_PHOTOS_DEST'] = 'uploads'
 
 photos = UploadSet('photos', IMAGES)
 configure_uploads(app, photos)
+
+# api 설정 해둠. git은 퍼블릭이라 일단 빼둡니다. 돌려보고 싶으면 api 조민지에게 개인 문의~
+API_KEY = "API KEY"
 
 class UploadForm(FlaskForm):
     photo = FileField(
@@ -40,28 +45,38 @@ def upload_image():
         file_url = None
     return render_template('sign.html', form=form, file_url=file_url)
 
-import cv2
-import numpy as np
-def make_grayscale(in_stream):
-    # Credit: https://stackoverflow.com/a/34475270
-
-    # use numpy to construct an array from the bytes
-    arr = np.fromstring(in_stream, dtype='uint8')
-
-    # decode the array into an image
-    img = cv2.imdecode(arr, cv2.IMREAD_UNCHANGED)
-
-    # Make grayscale
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-    _, out_stream = cv2.imencode('.PNG', gray)
-
-    return out_stream
-
-#결과 화면 가져오기
-@app.route('/result')
+#결과 화면 가져오기/ hugging face의 모델을 이용-사진 인식 모델
+@app.route('/result', mothods=["POST"])
 def get_result():
-    return render_template('')
+    image = request.json['image']
+    # replace YOUR_MODEL_ENDPOINT with the API endpoint of your Hugging Face model
+    model_endpoint = "YOUR_MODEL_ENDPOINT"
+
+    response = requests.post(
+        model_endpoint,
+        headers={
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        data=json.dumps({
+            "instances": [{
+                "input_image": image
+            }]
+        })
+    )
+
+    result = response.json()
+    prediction = result['predictions'][0]
+
+    #prediction에 따라 검색어를 바꿔야 하는 부분
+    #검색어를 google map api작동 코드랑 합칠 예정
+    return render_template('result.html', prediction=prediction)
+
+#html에 필요한 코드
+'''
+<h1>Prediction:</h1>
+<p>{{ prediction }}</p>
+'''
 
 
 #로그인
@@ -82,6 +97,25 @@ def login_check():
 	#그냥 밑에 return값만 바꾸면 된다.
 
     return render_template('moodyfoody.html', message=message)
+
+#google map api usage
+@app.route("/search", methods=["POST"])
+def search():
+    radius = request.form.get("radius", "5000")
+    keyword = request.form.get("keyword")
+
+    # Get the user's current location using the browser's Geolocation API
+    current_location = request.form.get("current_location")
+    if current_location:
+        location = current_location
+    else:
+        return "Could not get your current location. Please enable location services in your browser and try again."
+
+    url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={location}&radius={radius}&type=restaurant&keyword={keyword}&key={API_KEY}"
+    response = requests.get(url)
+    data = response.json()
+
+    return render_template("search.html", data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)
