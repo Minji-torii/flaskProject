@@ -12,6 +12,12 @@ def index():
     return render_template("index.html")
 
 
+def get_places(location, radius, keyword):
+    url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={location}&radius={radius}&type=restaurant&keyword={keyword}&key={API_KEY}"
+    response = requests.get(url)
+    return response.json()
+
+
 @app.route("/search", methods=["POST"])
 def search():
     radius = request.form.get("radius", "5000")
@@ -24,9 +30,7 @@ def search():
     else:
         return "Could not get your current location. Please enable location services in your browser and try again."
 
-    url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={location}&radius={radius}&type=restaurant&keyword={keyword}&key={API_KEY}"
-    response = requests.get(url)
-    data = response.json()
+    data = get_places(location, radius, keyword)
 
     return render_template("search.html", data=data)
 
