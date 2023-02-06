@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory, url_for, request
+from flask import Flask, render_template, send_from_directory, url_for, request,flash
 import requests
 import json
 
@@ -45,6 +45,19 @@ def upload_image():
         file_url = None
     return render_template('sign.html', form=form, file_url=file_url)
 
+#로그인
+@app.route('/login_check')
+def login_check():
+    username = request.args.get('username')
+    password = request.args.get('password')
+
+    if username == 'goodfood.com' and password == 'aa':
+        return render_template('company.html')
+
+    else:
+        flash("wrong information")
+        return render_template('sign.html')
+
 """
 
 #결과 화면 가져오기/ hugging face의 모델을 이용-사진 인식 모델
@@ -80,25 +93,6 @@ def get_result():
 <p>{{ prediction }}</p>
 '''
 
-
-#로그인
-'''html
-    <form action="/login_check">
-        ID <input type="text" name="username" />
-        PW <input type="password" name="password" />
-        제출 <input type="submit" />
-    </form>
-'''
-@app.route('/login_check')
-def login_check():
-    username = request.args.get('username')
-    password = request.args.get('password')
-
-    if username == 'admin' and password == 'admin123':
-        message = '환영합니다.'
-	#그냥 밑에 return값만 바꾸면 된다.
-
-    return render_template('moodyfoody.html', message=message)
 
 #google map api usage
 @app.route("/search", methods=["POST"])
