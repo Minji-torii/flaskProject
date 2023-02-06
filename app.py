@@ -45,6 +45,8 @@ def upload_image():
         file_url = None
     return render_template('sign.html', form=form, file_url=file_url)
 
+"""
+
 #결과 화면 가져오기/ hugging face의 모델을 이용-사진 인식 모델
 @app.route('/result', mothods=["POST"])
 def get_result():
@@ -116,6 +118,8 @@ def search():
     data = response.json()
 
     return render_template("search.html", data=data)
+    
+    """
 
 if __name__ == '__main__':
     app.run(debug=True)
