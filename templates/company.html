@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+  #thanks{
+  background: url('../static/img/last.png') center  center / cover no-repeat;
+  }
+    #sign{
+  background: url('../static/img/signBack.png') center  center / cover no-repeat;
+  }
+   #first{
+    background: url('../static/img/mainBackground2.png') center center / cover no-repeat;
+    height: 100vh;
+    width:100%;
+    }
+        body {
+            height: 200vh;
+        }
+
+        .logo{
+            display: flex;
+            left:3%;
+            z-index: 1;
+                top: 4%;
+            position: absolute;
+            width: 99%;
+        }
+
+        @keyframes ani{
+            0%{transform:translate(0,0);}
+            100%{transform:translate(0,20px);}
+        }
+
+        .logoimg{
+        width: 34%;
+        }
+
+        .main{
+            display: flex;
+            justify-content: center;
+        }
+
+        .meat{
+              animation: ani 1s infinite alternate;
+             width: 28%;
+             position: absolute;
+             margin-top: 12%;
+        }
+
+        .box{
+        width: 80%;
+        background-color: white;
+        }
+
+        .radiusMain{
+          display: block;
+        top: 72px;
+        height: 85%;
+        left: 50%;
+        width: 66%;
+        position: absolute;
+       /* border: solid 0.2em white; */
+        transform: translateX(-50%);
+        }
+
+        .textBox{
+             position: absolute;
+            left: 19%;
+            top: 10%;
+            font-family: sansita;
+        }
+
+        .text1{
+        color: white;
+        font-size: 1.5rem;
+        }
+
+        @font-face {
+        font-family: 'sansita';
+        src: url("Sansita/SansitaOne.ttf") format("truetype") ;
+        font-weight: 400;
+        }
+          @font-face {
+        font-family: 'fugaz';
+        src: url("Fugaz_One/FugazOne-Regular.ttf") format("truetype") ;
+        font-weight: 400;
+        }
+
+        .text2{
+          color: BLACK;
+          position: absolute;
+          margin-left: 330%;
+          top: 190%;
+          font-size: 1.5rem;
+        }
+
+
+/* btn CSS */
+.button-87 {
+    margin: 0 auto;
+    padding: 15px 90px;
+    margin-top: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 30px;
+    display: block;
+    border: 0px;
+    font-family: sansita;
+    font-size: 2rem;
+    /* font-weight: 700; */
+    box-shadow: 0px 0px 14px -7px #ffc571;
+    background-image: linear-gradient(45deg, #ff6c00 0%, #ffe3b1 51%, #ff6a00 100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+.button-87.forB{
+   font-size: 1rem;
+    top: 20;
+    margin-top: 2%;
+    left: 62%;
+    position: absolute;
+}
+.button-87.forB2{
+      font-size: 1rem;
+    margin-top: 2%;
+    top: 70%;
+    left: 16%;
+    position: absolute;
+}
+.button-87.a{
+    margin-top: 20%;
+    background-image: linear-gradient(45deg, #ed44e4 0%, #ffe3b1 51%, #a458e5 100%);
+    left: 0;
+    margin-left: 0;
+    padding: 13px 70px;
+}
+
+.button-87:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.button-87:active {
+  transform: scale(0.95);
+}
+
+#second{
+    background: url(../static/img/second3.png) center center / cover no-repeat;
+    /* position: absolute; */
+    height: 100vh;
+    /* display: block; */
+    width: 100%;
+}
+
+.secondMain{
+    color: #BD6CCA;
+    display: block;
+    /* margin: 0 auto; */
+    left: 25%;
+    top: 15%;
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+.text3{
+    font-family: sansita;
+    font-size: 3rem;
+}
+
+.text4{
+    font-family: sansita;
+      font-size: 1.5rem;
+}
+.rec{
+width: 57%;
+    position: absolute;
+    top: 24%;
+    height: 50%;
+    right: 0;
+}
+.happy{
+    /* position: absolute; */
+    margin-left: 44%;
+    margin-top: 9%;
+}
+.meat2{
+position: absolute;
+    right: 0%;
+  top: 156%;
+}
+.chicken{
+position: absolute;
+    right: 15%;
+    /* top: -2%; */
+    width: 20%;
+}
+
+/* third */
+#third{
+background: linear-gradient(#FEC8FF, white);
+    position: absolute;
+       height: 100vh;
+    width:100%;
+}
+    @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
+
+html, body {
+  height: 100%;
+}
+section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#thanks {
+  background-color: #fff;
+}
+#thanks::after {
+  content: none;
+}
+#thanks div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+#thanks h2 {
+  margin-bottom: 60px;
+  color: #333;
+  font : normal 300 64px/1 'Josefin Sans', sans-serif;
+  text-align: center;
+  white-space: nowrap;
+}
+#thanks p {
+  color: #333;
+  font : normal 400 20px/1 'Josefin Sans', sans-serif;
+}
+#thanks p a {
+  color: #333;
+  text-decoration: none;
+  transition: color .3s;
+}
+#thanks p a:hover {
+  color: #888;
+}
+.demo a {
+    color: #fff;
+    text-decoration: none;
+}
+.demo a:hover {
+  opacity: .5;
+}
+
+
+
+/* #section01 a {
+  padding-top: 60px;
+} */
+#section01 a span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  box-sizing: border-box;
+}
+
+
+
+#section02 a {
+  padding-top: 60px;
+}
+#section02 a span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 46px;
+  height: 46px;
+  margin-left: -23px;
+  border: 1px solid #fff;
+  border-radius: 100%;
+  box-sizing: border-box;
+}
+#section02 a span::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: '';
+  width: 16px;
+  height: 16px;
+  margin: -12px 0 0 -8px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  box-sizing: border-box;
+}
+
+
+
+#section03 a {
+  padding-top: 60px;
+}
+#section03 a span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 46px;
+  height: 46px;
+  margin-left: -23px;
+  border: 1px solid #fff;
+  border-radius: 100%;
+  box-sizing: border-box;
+}
+#section03 a span::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: '';
+  width: 16px;
+  height: 16px;
+  margin: -12px 0 0 -8px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  box-sizing: border-box;
+}
+#section03 a span::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  content: '';
+  width: 44px;
+  height: 44px;
+  box-shadow: 0 0 0 0 rgba(255,255,255,.1);
+  border-radius: 100%;
+  opacity: 0;
+  -webkit-animation: sdb03 3s infinite;
+  animation: sdb03 3s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes sdb03 {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    box-shadow: 0 0 0 60px rgba(255,255,255,.1);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sdb03 {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    box-shadow: 0 0 0 60px rgba(255,255,255,.1);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+
+#section04 a {
+  padding-top: 60px;
+}
+#section04 a span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sdb04 2s infinite;
+  animation: sdb04 2s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes sdb04 {
+  0% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+  }
+  20% {
+    -webkit-transform: rotate(-45deg) translate(-10px, 10px);
+  }
+  40% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+  }
+}
+@keyframes sdb04 {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+  20% {
+    transform: rotate(-45deg) translate(-10px, 10px);
+  }
+  40% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+}
+
+
+
+#section05 a {
+  padding-top: 70px;
+}
+#section05 a span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sdb05 1.5s infinite;
+  animation: sdb05 1.5s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes sdb05 {
+  0% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+}
+@keyframes sdb05 {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+}
+
+
+
+#section06 a {
+  padding-top: 70px;
+}
+#section06 a span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotateZ(-45deg);
+  transform: rotateZ(-45deg);
+  -webkit-animation: sdb06 1.5s infinite;
+  animation: sdb06 1.5s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes sdb06 {
+  0% {
+    -webkit-transform: rotateY(0) rotateZ(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotateY(720deg) rotateZ(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+}
+@keyframes sdb06 {
+  0% {
+    transform: rotateY(0) rotateZ(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(720deg) rotateZ(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes sdb10 {
+  0% {
+    -webkit-transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sdb10 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*third profile*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
+.body{
+background: linear-gradient(#FEC8FF, white);
+}
+.book-slide {
+      width: 100%;
+        top: 50%;
+    position: absolute;
+}
+.book-cell {
+     position: relative;
+    display: flex;
+    padding: 25px;
+    width: 30%;
+    height: 250px;
+    margin-right: 1px;
+}
+.book-cell:nth-child(1) {
+background: #b2e9e2;
+}
+.book-cell:nth-child(2) {
+background: #ffd067;;
+}
+.book-cell:nth-child(3) {
+  background: linear-gradient(45deg, #7272ff, #ffb4f199);
+}
+.book-cell:nth-child(4) {
+  background: linear-gradient(45deg, #ffb174, #ffb4f199);
+}
+
+.flickity-page-dots {
+  display: none;
+}
+
+.flickity-prev-next-button .arrow {
+  fill: #d6d6d6;
+}
+
+.flickity-prev-next-button svg {
+  left: 25%;
+  top: 25%;
+  width: 50%;
+  height: 50%;
+}
+
+.flickity-prev-next-button.previous {
+        left: 30%;
+    top: 115%;
+    position: absolute;
+    width: 4%;
+    border: none;
+    background: none;
+    height: 15%;
+    border-radius: 50%;
+}
+.flickity-prev-next-button.next {
+      right: 30%;
+    top: 115%;
+    position: absolute;
+    width: 4%;
+    border: none;
+    background: none;
+    height: 15%;
+    border-radius: 50%;
+}
+
+.flickity-viewport {
+  overflow: visible;
+}
+
+.book-photo {
+    margin-top: -30%;
+    width: 60%;
+    flex-shrink: 0;
+    bottom: -35px;
+    margin-left: 8%;
+    left: 35px;
+  transition: 0.3s ease;
+}
+.book-photo.larger{
+width: 70%;
+margin-left:4%;
+}
+.book-photo.larger2{
+    width: 70%;
+    margin-top: -25%;
+    margin-left: -2%;
+}
+.book-photo:hover {
+  transform: scale(1.03);
+}
+
+.book-img {
+  flex-shrink: 0;
+}
+
+.book-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.textBoxThird{
+  color: white;
+  margin-top: 4%;
+}
+
+.text5{
+    font-family: sansita;
+    font-size: 3rem;
+    text-align:center;
+}
+
+.text6{
+    font-family: sansita;
+      font-size: 1.5rem;
+      text-align:center;
+}
+
+.booktxtName{
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    transform: translateX(-50%);
+    font-family: fugaz;
+    font-size: 1.5rem;
+    text-align: center;
+}
+/*navbar*/
+.navbar {
+    overflow: hidden;
+    background: white;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+}
+
+
+
+/* Links inside the navbar */
+.navbar a {
+  font-family: sansita;
+  font-size: 1.2rem;
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 25px;
+  text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+.link-3 {
+  transition: 0.4s;
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 0 10px;
+  margin: 0 10px;
+}
+.link-3:hover {
+  background-color: #ffffff;
+  color: #EEA200;
+  padding: 14px 25px;
+}
+
+.homeimg{
+  width: 65%;
+}
+
+/*sign in*/
+
+.goBox{
+    display: flex;
+    width: 80%;
+    top: 20%;
+    left: 50%;
+    height: 80%;
+    transform: translateX(-50%);
+    position: absolute;
+    justify-content: center;
+}
+.forUser{
+width: 35%;
+    margin: 5% 0% 5%;
+    /* margin: 5%; */
+    padding: 10%;
+    background: white;
+    border-radius:30px;
+}
+.forRest{
+width: 35%;
+    margin: 5% 0% 5% 10%;
+    /* margin: 5%; */
+    padding: 10%;
+    background: white;
+    border-radius:30px;
+}
+
+.forx{
+    top: 10%;
+    font-family:fugaz;
+    position: absolute;
+    font-size: 2rem;
+    background: linear-gradient( #E963FF,  #ffde28);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.forx.user{
+transform: translateX(-50%);
+left:28%;
+}
+.forx.rest{
+transform: translateX(-50%);
+left:73%;
+}
+.forimg2{
+width: 90%;
+}
+.forText{
+    font-family: 'fugaz';
+    width: 200px;
+    position: absolute;
+    top: 22%;
+    left: 60%;
+    color: #545454;
+    font-size: 1rem;
+}
+.forText2{
+ font-family: 'fugaz';
+    width: 200px;
+    position: absolute;
+    top: 22%;
+    left: 15%;
+    color: #545454;
+    font-size: 1rem;
+}
+  </style>
+</head>
+<body>
+
+<section id="section01" class="demo">
+  <header>
+    <div class="navbar">
+      <a class="link-3" href="#section02">SIGN IN</a>
+      <a class="link-3" href="#section02">CONTACT</a>
+      <a class="link-3" href="#section02">ABOUT</a>
+      <a class="link-3" href="#section02">HOW TO</a>
+      <a class="link-3" href="#section02">SERVICES</a>
+      <a class="link-3" href="#first"><img src="../static/img/home.png" class="homeimg"></a>
+
+    </div>
+  </header>
+  <section id="first">
+    <div class="logo">
+      <img class="logoimg" src='../static/img/logoFinal.png'>
+    </div>
+    <div class="radiusMain">
+      <div class="main">
+        <img class="meat" src='../static/img/hamburger.png'>
+      </div>
+      <button class="button-87" role="button" ><a href="#section02">TRY IT MORE!</a></button>
+    </div>
+<!--    <div class="textBox">-->
+<!--      <div>-->
+<!--        <p class="text2">DECIDE UR FOOD <br> SUPER EASILY</p>-->
+<!--      </div>-->
+<!--    </div>-->
+  </section>
+</section>
+<section id="section02" class="demo">
+  <section id="second">
+<!--    <div class="secondMain">-->
+<!--      <h1 class="text3">HOW DOES IT WORKS?</h1>-->
+<!--      <p class="text4">-->
+<!--        </br> When your image is uploaded,</br>-->
+<!--        we will predict your mood of the uploaded image.</br>-->
+<!--        And based on your mood,</br>-->
+<!--        we will recommend you some food and restaurants.</br>-->
+<!--        I hope you'll be happy.</br>-->
+<!--      </p>-->
+<!--      <button class="button-87 a"> PLAY VIDEO </button>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--      <img class="happy" src="img/happy.png">-->
+<!--      &lt;!&ndash;        <img class="meat2" src="img/meat.png">&ndash;&gt;-->
+<!--      <img class="chicken" src="img/chicken.png">-->
+<!--    </div>-->
+  </section>
+
+  <a href="#section03"><span></span>Scroll</a>
+</section>
+<section id="section03" class="demo">
+  <section id="third">
+    <div class="textBoxThird">
+      <h1 class="text5">OUR STRENGTH</h1>
+      <p class="text6" >
+        We will introduce the difference from other recommended apps.</br>
+        We plan to generate profits through the b2b profit structure     </p>
+    </div>
+    <div class="book-store">
+
+      <div class="book-slide">
+        <div class="book js-flickity" data-flickity-options='{ "wrapAround": true }'>
+          <div class="book-cell">
+            <div class="book-img">
+              <img src="../static/img/recommend.png" alt="" class="book-photo larger">
+            </div>
+            <div class="book-content">
+             <p class="booktxtName">RECOMMENDATION BASED ON MOOD </p>
+            </div>
+          </div>
+          <div class="book-cell">
+            <div class="book-img">
+              <img src="../static/img/fun.png" alt="" class="book-photo">
+            </div>
+            <div class="book-content">
+              <p class="booktxtName">LIGHT&FUN </br> RECOMMEND</p>
+            </div>
+
+          </div>
+          <div class="book-cell">
+            <div class="book-img">
+              <img src="../static/img/sns.png" alt="" class="book-photo">
+            </div>
+            <div class="book-content">
+              <p class="booktxtName">SHARE YOUR RESULTS</p>
+
+            </div>
+          </div>
+          <div class="book-cell">
+            <div class="book-img">
+              <img src="../static/img/money.png" alt="" class="book-photo larger2">
+            </div>
+            <div class="book-content">
+              <p class="booktxtName">USE FOR FREE</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </section>
+</section>
+
+<section id="thanks">
+
+</section>
+<section id="sign">
+  <div class="goBox">
+    <div class="forUser">
+      <h1 class="forx user">FOR USER</h1>
+      <p class="forText2">DO YOU WANT TO<br>
+        DECIDE YOUR MENU?</p>
+      <img src="../static/img/happy.png" class="forimg2">
+      <button class="button-87 forB2" role="button" ><a href="#section02">CLICK TO GO!</a></button>
+    </div>
+    <div class="forRest">
+      <h1 class="forx rest">FOR RESTAURENT</h1>
+      <p class="forText">DO YOU WANT TO<br>
+        ADEVERTISE YOUR SHOP?</p>
+      <img src="img/restaurent.png" class="forimg2">
+      <button class="button-87 forB" role="button" ><a href="#section02">CLICK TO GO!</a></button>
+    </div>
+  </div>
+
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+  $(function() {
+  $('a[href*=#]').on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+  });
+});
+</script>
+</body>
+</html>
