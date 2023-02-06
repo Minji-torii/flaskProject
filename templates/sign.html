@@ -180,10 +180,107 @@ input[type=file]::file-selector-button:hover {
   background: #4d4d4d;
   color: #fff;
 }
+@font-face {
+        font-family: 'sansita';
+        src: url("../static/Sansita/SansitaOne.ttf") format("truetype") ;
+        font-weight: 400;
+        }
+@font-face {
+        font-family: 'fugaz';
+        src: url("../static/Fugaz_One/FugazOne-Regular.ttf") format("truetype") ;
+        font-weight: 400;
+        }
+.loginbox{
+    width: 780px; height: 550px;
+    margin: 0 auto; /* 블록요소를 부모영역에서 가운데 처리 */
+}
+
+#loginboxForm{
+display: none;
+}
+.loginbox form{
+    top: 20%;
+    width: 50%;
+    border-radius: 30px;
+    height: 450px;
+    z-index: 9;
+
+    background-color: #fff;
+    padding: 55px;
+    box-sizing: border-box;
+    position: absolute;
+}
+.loginbox fieldset{
+    border: none; /* 테두리 제거 */
+}
+.loginbox legend{
+    /* 요소를 화면 밖으로 처리 */
+    position: absolute; left: -999em;
+
+}
+.loginbox label{
+    display: block;
+    font-size: 1.3rem;
+
+    color: #333;
+    font-family: fugaz;
+    margin-bottom: 10px; /* 동위선택자와의 간격 조정 */
+}
+.loginbox input{
+    display: block;
+    width: 100%; height: 50px;
+    margin-bottom: 25px; /* 동위선택자와의 간격 조정 */
+    border: none; background-color: #ededed;
+    padding: 0 20px; /* 앞상하 뒷좌우 */
+    box-sizing: border-box; /* 패딩수치를 인사이드 처리 */
+}
+
+.loginbox ul{
+    width: 100%;
+    margin-bottom: 60px;
+    position: relative;
+    right: 6%;
+}
+.loginbox li{
+    display: inline-block;
+    height: 12px; line-height: 12px;
+}
+.loginbox li:last-child{
+    border-left: 1px solid #333;
+    padding-left: 10px; /* 테두리 안쪽 여백 */
+    margin-left: 4px; /* 테두리 바깥쪽 여백 */
+}
+.loginbox a{
+    /* 글자관련은 보통 최종태그에 줘야 적용 */
+    color: #333; font-size: 12px;
+
+    /* 현재 위치에서 상대적 이동 */
+    position: relative; top: -2px;
+}
+.loginbox button{
+      display: block;
+    width: 40%;
+    height: 50px;
+    margin: 0 auto;
+    border: none;
+    font-family: 'fugaz';
+    background-color: #ea9116;
+    color: #fff;
+    border-radius: 15px;
+    font-size: 1.5rem;
+}
+.bgLogin{
+    width: 100%;
+    height: 100vh;
+    background: #00000069;
+    z-index: 2;
+    position: absolute;
+    display: none;
+}
 </style>
 <section id="signIn" class="demo">
     <div class="navbar">
-        <a class="link-3" href="#section02">SIGN IN</a>
+        <a class="link-3" onclick="openSign()">SIGN IN</a>
         <a class="link-3" href="#section02">CONTACT</a>
         <a class="link-3" href="#section02">ABOUT</a>
         <a class="link-3" href="#section02">HOW TO</a>
@@ -193,6 +290,26 @@ input[type=file]::file-selector-button:hover {
     </div>
     <div class="logo">
         <img class="logoimg" src='../static/img/logoFinal.png'>
+    </div>
+    <div class="bgLogin" id="loginboxBg">
+        <div class="loginbox" >
+            <form action="#" id="loginboxForm">
+                <!--작성하지 않아도 문제는 없음-->
+                <fieldset>
+                    <legend>로그인 구역</legend>
+                    <label for="loginid">ID (E-mail)</label>
+                    <input type="text" id="loginid" placeholder="Enter your ID(E-mail)">
+                    <label for="loginpw">PASSWORD</label>
+                    <input type="password" id="loginpw" placeholder="Enter your PASSWORD">
+                    <ul>
+                        <li><a href="#">ID/PASSWORD</a></li>
+                        <li><a href="#">SING UP</a></li>
+                    </ul>
+                    <!--데이터를 서버로 전송-->
+                    <button type="submit">SIGN IN</button>
+                </fieldset>
+            </form>
+        </div>
     </div>
     {% if file_url %}
 {#                <!-이미지 디스플레이 div>#}
@@ -216,11 +333,23 @@ input[type=file]::file-selector-button:hover {
                     <div class="col-auto auto2">
 
                         {{  form.submit(class="btnbtn-success") }}
+                          <button class="button-87" ><a href="../static/result.html">check!</button>
                     </div>
                 </div>
 
                 </form>
 
 </section>
+<script>
+      function newPage()  {
+  window.location.href = '/templates/result.html'
+}
+      function openSign(){
+    var modal =  document.getElementById("loginboxForm");
+    var modalBg =  document.getElementById("loginboxBg");
+    modal.style.display = "block";
+    modalBg.style.display = "block";
+    }
+</script>
 </body>
 </html>
