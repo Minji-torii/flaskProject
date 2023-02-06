@@ -35,7 +35,7 @@
 
     .layerBox{
     display: flex;
-    width:100%
+    width:100%;
     height: 100vh;
 
     }
@@ -118,6 +118,34 @@
     font-family: fugaz;
     }
 
+      table.type04 {
+    border-collapse: separate;
+    border-spacing: 1px;
+    /* position: absolute; */
+    text-align: left;
+    background: white;
+    position: relative;
+    line-height: 6.5;
+    left: 50%;
+    margin: 0 auto;
+    border-top: 3px solid #ccc;
+    margin: 20px 10px;
+    transform: translate(-50%);
+}
+table.type04 th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+table.type04 td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
     </style>
 </head>
 <body>
@@ -151,8 +179,22 @@
         <div class="resultDiv">
             <h1 class="resultSlogan">YOU WANT THIS!</h1>
 
+
             <img src="../static/img/meat.png">
-            <img src="../static/img/hamburger.png">
+            <table class="type04">
+              <tr>
+                <th scope="row">음식점</th>
+                <td>내용이 들어갑니다.</td>
+              </tr>
+{#              <tr>#}
+{#                <th scope="row">항목명</th>#}
+{#                <td>내용이 들어갑니다.</td>#}
+{#              </tr>#}
+{#              <tr>#}
+{#                <th scope="row">항목명</th>#}
+{#                <td>내용이 들어갑니다.</td>#}
+{#              </tr>#}
+            </table>
 
         </div>
     </div>
