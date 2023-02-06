@@ -40,7 +40,6 @@ body, html {
   padding: 14px 25px;
   text-decoration: none;
 }
-
 /* Change background on mouse-over */
     .navbar a:hover {
       background: #ddd;
@@ -82,11 +81,10 @@ body, html {
 }
 
 .button-87 {
-    padding: 15px 110px;
+  padding: 15px 80px;
     position: absolute;
-    top: 80%;
     transform: translate(-50%);
-    left: 50%;
+    left: 61%;
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
@@ -96,7 +94,7 @@ body, html {
     display: block;
     border: 0px;
     font-family: sansita;
-    font-size: 2rem;
+    font-size: 1.3rem;
     /* font-weight: 700; */
     box-shadow: 0px 0px 14px -7px #ffc571;
     background-image: linear-gradient(45deg, #7C3400 0%, #271A00 51%, #7C3400 100%);
@@ -119,10 +117,11 @@ body, html {
 }
 .col-auto.auto2 {
     top:85%;
+    width:100%;
 }
 
 .col-auto{
-    z-index: 3;
+    z-index: 1;
     position: absolute;
     top:75%;
     left: 50%;
@@ -130,12 +129,12 @@ body, html {
     display: block;
 }
 input#submit {
-    width: 260px;
-     padding: 15px 80px;
+       width: 260px;
+    padding: 15px 80px;
     position: absolute;
-    top: 60%;
+    /* top: 60%; */
     transform: translate(-50%);
-    left: 50%;
+    left: 40%;
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
@@ -344,6 +343,7 @@ display: none;
       function newPage()  {
   window.location.href = '/templates/result.html'
 }
+
       function openSign(){
     var modal =  document.getElementById("loginboxForm");
     var modalBg =  document.getElementById("loginboxBg");
