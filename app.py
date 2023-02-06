@@ -58,10 +58,11 @@ def login_check():
         flash("wrong information")
         return render_template('sign.html')
 
-"""
-
 #결과 화면 가져오기/ hugging face의 모델을 이용-사진 인식 모델
-@app.route('/result', mothods=["POST"])
+@app.route('/result')
+def get_result():
+    return render_template('result.html')
+'''
 def get_result():
     image = request.json['image']
     # replace YOUR_MODEL_ENDPOINT with the API endpoint of your Hugging Face model
@@ -85,8 +86,10 @@ def get_result():
 
     #prediction에 따라 검색어를 바꿔야 하는 부분
     #검색어를 google map api작동 코드랑 합칠 예정
-    return render_template('result.html', prediction=prediction)
+    
+    return render_template('result.html', prediction=prediction)'''
 
+"""
 #html에 필요한 코드
 '''
 <h1>Prediction:</h1>
