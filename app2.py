@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__)
 
 # api 설정 해둠. git은 퍼블릭이라 일단 빼둡니다. 돌려보고 싶으면 api 조민지에게 개인 문의~
-API_KEY = "API KEY"
+API_KEY = "AIzaSyCoeKVcwzfGy7O1d5IOEJRv1ySGtfsLYxo"
 
 
 @app.route("/")
@@ -32,7 +32,7 @@ def search():
 
     data = get_places(location, radius, keyword)
 
-    return render_template("search.html", data=data)
+    return render_template("result.html", data=data)
 
 
 if __name__ == '__main__':

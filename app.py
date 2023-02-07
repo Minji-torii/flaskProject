@@ -18,7 +18,7 @@ photos = UploadSet('photos', IMAGES)
 configure_uploads(app, photos)
 
 # api 설정 해둠. git은 퍼블릭이라 일단 빼둡니다. 돌려보고 싶으면 api 조민지에게 개인 문의~
-API_KEY = "API KEY"
+API_KEY = "AIzaSyCoeKVcwzfGy7O1d5IOEJRv1ySGtfsLYxo"
 
 class UploadForm(FlaskForm):
     photo = FileField(
@@ -58,10 +58,30 @@ def login_check():
         flash("wrong information")
         return render_template('sign.html')
 
+
+def get_places(location, radius, keyword):
+    url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={location}&radius={radius}&type=restaurant&keyword={keyword}&key={API_KEY}"
+    response = requests.get(url)
+    return response.json()
+
+
 #결과 화면 가져오기/ hugging face의 모델을 이용-사진 인식 모델
-@app.route('/result')
-def get_result():
-    return render_template('result.html')
+@app.route('/result',  methods=["POST"])
+def search():
+    radius = "5000"
+    keyword = "coffee"
+
+    # Get the user's current location using the browser's Geolocation API
+    current_location = request.form.get("current_location")
+    if current_location:
+        location = current_location
+    else:
+        return "Could not get your current location. Please enable location services in your browser and try again."
+
+    data = get_places(location, radius, keyword)
+
+    return render_template("result.html", data=data)
+
 '''
 def get_result():
     image = request.json['image']

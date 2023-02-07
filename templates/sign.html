@@ -153,6 +153,10 @@ input#submit {
     -webkit-user-select: none;
     touch-action: manipulation;
 }
+.any{
+    position: absolute;
+    z-index: 5;
+}
 input[type=file]::file-selector-button {
    padding: 12px 80px;
     position: absolute;
@@ -340,8 +344,10 @@ display: none;
                 </div>
 
                 </form>
-                <form action='/result'>
-                     <button class="button-87" >check!</button>
+                <form action='/result' method="post">
+                    <button type="button" onclick="getLocation()" class="any">Use Current Location</button>
+                    <input type="hidden" name="current_location" id="current_location">
+                    <button type="submit" class="button-87" >check!</button>
                 </form>
 
 </section>
@@ -355,6 +361,18 @@ display: none;
     var modalBg =  document.getElementById("loginboxBg");
     modal.style.display = "block";
     modalBg.style.display = "block";
+    }
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+
+    function showPosition(position) {
+      document.getElementById("current_location").value = position.coords.latitude + "," + position.coords.longitude;
     }
 </script>
 </body>
