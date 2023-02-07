@@ -18,7 +18,7 @@ photos = UploadSet('photos', IMAGES)
 configure_uploads(app, photos)
 
 # api 설정 해둠. git은 퍼블릭이라 일단 빼둡니다. 돌려보고 싶으면 api 조민지에게 개인 문의~
-API_KEY = "AIzaSyCoeKVcwzfGy7O1d5IOEJRv1ySGtfsLYxo"
+API_KEY = "--"
 
 class UploadForm(FlaskForm):
     photo = FileField(
