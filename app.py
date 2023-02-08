@@ -2,7 +2,7 @@ from base64 import b64encode
 
 from flask import Flask, render_template, send_from_directory, url_for, request,flash
 import requests
-import json
+from bs4 import BeautifulSoup
 import base64
 
 from flask_uploads import UploadSet, IMAGES, configure_uploads
@@ -71,7 +71,6 @@ def get_places(location, radius, keyword):
 #결과 화면 가져오기/ hugging face의 모델을 이용-사진 인식 모델
 @app.route('/result',  methods=["POST"])
 def search():
-    #
     file_path = "uploads/for_test.jpg"
     with open(file_path, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read()).decode("utf-8")
@@ -88,32 +87,33 @@ def search():
 
     #match food
     if fin_result == "angry":
-        food_list = ['bacon', 'peanuts', 'chocolate bar', 'popcorn', 'cookie', 'doughnut', 'rice crackers', 'croissant',
+        food_list = ['bacon', 'peanuts', 'chocolate_bar', 'popcorn', 'cookie', 'doughnut', 'rice_crackers', 'croissant',
                      'candy']
 
     elif fin_result == "sad":
-        food_list = ['cheese', 'cake', 'french fries', 'fried shrimp', 'honey', 'bread', 'french bread', 'pizza',
+        food_list = ['cheese', 'cake', 'french_fries', 'fried_shrimp', 'honey', 'bread', 'french_bread', 'pizza',
                      'hamburger']
 
     elif fin_result == "neutral":
-        food_list = ['hotdog', 'pancakes', 'taco', 'ice cream', 'beef', 'chestnut', 'chicken', 'burrito']
+        food_list = ['hotdog', 'pancakes', 'taco', 'ice_cream', 'beef', 'chestnut', 'chicken', 'burrito']
 
     elif fin_result == "happy":
-        food_list = ['avocado', 'spaghetti', 'custard flan', 'sake', 'rice', 'corn', 'potato', 'banana']
+        food_list = ['avocado', 'spaghetti', 'custard_flan', 'sake', 'rice', 'corn', 'potato', 'banana']
 
     elif fin_result == "disgust":
-        food_list = ['red wine', 'champagne', 'grapes', 'milk', 'red apple', 'cherries', 'kiwifruit', 'green apple']
+        food_list = ['red_wine', 'champagne', 'grapes', 'milk', 'red_apple', 'cherries', 'kiwifruit', 'green_apple']
 
     elif fin_result == "surprise":
-        food_list = ['pear', 'tangerine', 'pineapple', 'beer', 'carrot', 'hot pepper', 'peach', 'strawberry']
+        food_list = ['pear', 'tangerine', 'pineapple', 'beer', 'carrot', 'hot_pepper', 'peach', 'strawberry']
 
     elif fin_result == "fear":
-        food_list = ['watermelon', 'lemon', 'melon', 'eggplant', 'mushroom', 'tomato', 'cucumber', 'black tea']
+        food_list = ['watermelon', 'lemon', 'melon', 'eggplant', 'mushroom', 'tomato', 'cucumber', 'black_tea']
 
     random_food = random.choice(food_list)
     print(random_food)
 
-    #re-route picture url to matched-food
+    image_file = "food_emoji/"+random_food+".png"
+    print(image_file)
 
     radius = "5000"
     keyword = random_food
@@ -127,7 +127,7 @@ def search():
 
     data = get_places(location, radius, keyword)
 
-    return render_template("result.html", data=data, result=fin_result)
+    return render_template("result.html", data=data, result=fin_result, image_file=image_file)
 
 
 if __name__ == '__main__':

@@ -166,6 +166,7 @@ table.type04 td {
         <div class="fixLayer">
 
             <div class="profile">
+                <img src="../uploads/for_test.jpg" class="profileImg">
             </div>
             <p class="feelingResult">YOU FEEL {{ result }}!</p>
             <div class="feelingText">
@@ -180,7 +181,7 @@ table.type04 td {
             <h1 class="resultSlogan">YOU WANT THIS!</h1>
 
 
-            <img src="../static/img/meat.png">
+            <img src="{{ url_for('static', filename=image_file) }}">
             <table class="type04">
                 {% for place in data['results'] %}
               <tr>
