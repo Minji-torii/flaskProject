@@ -238,7 +238,11 @@ display: none;
     padding: 0 20px; /* 앞상하 뒷좌우 */
     box-sizing: border-box; /* 패딩수치를 인사이드 처리 */
 }
-
+.testing{
+    position: absolute;
+    z-index: 6;
+    left:50%;
+}
 .loginbox ul{
     width: 100%;
     margin-bottom: 60px;
@@ -350,8 +354,15 @@ display: none;
                     <button type="submit" class="button-87" >check!</button>
                 </form>
 
+                <form action='/search' method="post">
+                    <button class="testing" onclick="tisbtnIsect()">For model</button>
+                </form>
+
 </section>
 <script>
+    function tisbtnIsect(){
+        console.log("wtf");
+    }
       function newPage()  {
   window.location.href = '/templates/result.html'
 }
