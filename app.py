@@ -129,59 +129,6 @@ def search():
 
     return render_template("result.html", data=data, result=fin_result)
 
-'''
-@app.route('/search', methods =["POST"])
-def get_result():
-    file_path = "uploads/for_test.jpg"
-    with open(file_path, "rb") as image_file:
-        encoded_string = base64.b64encode(image_file.read()).decode("utf-8")
-    image_data = f"data:image/png;base64,{encoded_string}"
-
-    response = requests.post("https://ahnnet-moodyfoody.hf.space/run/predict", json={
-        "data": [
-            image_data,
-        ]
-    }).json()
-
-    data = response["data"]
-    return render_template("new.html", data=data[0]["label"])
-
-'''
-'''
-def get_result():
-    image = request.json['image']
-    # replace YOUR_MODEL_ENDPOINT with the API endpoint of your Hugging Face model
-    model_endpoint = "YOUR_MODEL_ENDPOINT"
-
-    response = requests.post(
-        model_endpoint,
-        headers={
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        data=json.dumps({
-            "instances": [{
-                "input_image": image
-            }]
-        })
-    )
-
-    result = response.json()
-    prediction = result['predictions'][0]
-
-    #prediction에 따라 검색어를 바꿔야 하는 부분
-    #검색어를 google map api작동 코드랑 합칠 예정
-    
-    return render_template('new.html', prediction=prediction)'''
-
-"""
-#html에 필요한 코드
-'''
-<h1>Prediction:</h1>
-<p>{{ prediction }}</p>
-'''
-
-"""
 
 if __name__ == '__main__':
     app.run(debug=True)
