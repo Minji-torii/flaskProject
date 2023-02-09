@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html>
+          <body>
+            <img src="{{ url_for('static', filename="food_emoji/beer.png") }}" alt="Image 1">
+            <img src="{{ url_for('static', filename="food_emoji/eggplant.png") }}" alt="Image 2">
 
-</head>
-<body>
-<h1>Prediction:</h1>
-<p>{{ data }}</p>
-</body>
-</html>
+          <form action='/search' method="post">
+              <button class="testing">For model</button>
+          </form>
+          </body>
+        </html>

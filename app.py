@@ -2,7 +2,6 @@ from base64 import b64encode
 
 from flask import Flask, render_template, send_from_directory, url_for, request,flash
 import requests
-from bs4 import BeautifulSoup
 import base64
 
 from flask_uploads import UploadSet, IMAGES, configure_uploads
@@ -13,6 +12,8 @@ from wtforms import SubmitField
 import random
 
 app = Flask(__name__)
+Fuck = "indeed"
+
 app.config['SECRET_KEY'] = 'asldfkjlj'
 #파일 저장 공간
 app.config['UPLOADED_PHOTOS_DEST'] = 'uploads'
@@ -44,6 +45,8 @@ def upload_image():
         #file save
         filename = photos.save(form.photo.data)
         file_url = url_for('get_file', filename=filename)
+        global Fuck
+        Fuck = file_url
     else:
         file_url = None
     return render_template('sign.html', form=form, file_url=file_url)
@@ -69,9 +72,11 @@ def get_places(location, radius, keyword):
 
 
 #결과 화면 가져오기/ hugging face의 모델을 이용-사진 인식 모델
-@app.route('/result',  methods=["POST"])
+@app.route('/result',  methods=['GET', 'POST'])
 def search():
-    file_path = "uploads/for_test.jpg"
+    print(Fuck[1:])
+    uploaded_image = Fuck[1:]
+    file_path = Fuck[1:]
     with open(file_path, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read()).decode("utf-8")
     image_data = f"data:image/png;base64,{encoded_string}"
@@ -127,7 +132,7 @@ def search():
 
     data = get_places(location, radius, keyword)
 
-    return render_template("result.html", data=data, result=fin_result, image_file=image_file)
+    return render_template("result.html", data=data, result=fin_result, image_file=image_file, uploaded_image=uploaded_image)
 
 
 if __name__ == '__main__':
