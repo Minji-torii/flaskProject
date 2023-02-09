@@ -20,6 +20,11 @@
         src: url("../static/Sansita/SansitaOne.ttf") format("truetype") ;
         font-weight: 400;
         }
+           @font-face {
+        font-family: 'sofia';
+        src: url("../static/Fugaz_One/DMSans-Regular.ttf") format("truetype") ;
+        font-weight: 400;
+        }
           @font-face {
         font-family: 'fugaz';
         src: url("../static/Fugaz_One/FugazOne-Regular.ttf") format("truetype") ;
@@ -43,7 +48,8 @@
         width: 20%;
         }
         .fixLayer{
-         background: url('../static/img/backFix2.png') no-repeat center;
+            {#background: url("../static/img/backFix2.png");#}
+            background: #270808a8;
          position: sticky;
          width: 40%;
          height: 100vh;
@@ -96,17 +102,34 @@
     transform: translate(-50%);
     border-radius:25px;
     }
+    .profileImg{
+            position: absolute;
+    width: 100%;
+    height: 100%;
+    /* margin: 0 auto; */
+    /* height: 45%; */
+    left: 50%;
+    /* top: 22%; */
+    transform: translate(-50%);
+    border-radius: 25px;
+
+    }
     .feelingResult{
-    position: absolute;
+   position: absolute;
     top: 70%;
     left: 50%;
+    font-size: 2rem;
+        color:white;
     transform: translate(-50%);
+    font-family: 'fugaz';
     }
     .feelingText{
-    position: absolute;
-    top: 74%;
+   position: absolute;
+    top: 70%;
     left: 50%;
+    font-size: 2rem;
     transform: translate(-50%);
+    font-family: 'fugaz';
     }
 
     .resultSlogan{
@@ -114,7 +137,7 @@
     top: 10%;
     /* left: 13%; */
     font-size: 3rem;
-    padding: 0px 30px 0px 318px;
+    padding: 0px 30px 0px 270px;
     font-family: fugaz;
     }
 
@@ -128,22 +151,56 @@
     line-height: 6.5;
     left: 50%;
     margin: 0 auto;
-    border-top: 3px solid #ccc;
+    border-top: 28px solid #712929;
     margin: 20px 10px;
     transform: translate(-50%);
 }
 table.type04 th {
-  width: 150px;
-  padding: 10px;
-  font-weight: bold;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
+ width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    font-family: sofia;
+    background: #f3f3f3;
+    vertical-align: top;
+    border-bottom: 5px solid #a19090;
 }
 table.type04 td {
   width: 350px;
   padding: 10px;
+      font-family: sofia;
   vertical-align: top;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 5px solid #a19090;
+}
+.foodEmoji{
+    position: relative;
+    width:300px;
+    left:50%;
+    transform:translate(-50%);
+}
+.button-87 {
+   padding: 13px 80px;
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    top: 85%;
+    background-size: 200% auto;
+    color: black;
+    border-radius: 45px;
+    display: block;
+    border: 0px;
+    font-family: sansita;
+    font-size: 1.3rem;
+    /* font-weight: 700; */
+    box-shadow: 0px 0px 14px -7px #ffc571;
+    background-image: linear-gradient(45deg, #ffdaac 0%, #ffa500 51%, #ff6b00 100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
 }
 
     </style>
@@ -168,12 +225,9 @@ table.type04 td {
             <div class="profile">
                 <img src="{{ uploaded_image }}" class="profileImg">
             </div>
-            <p class="feelingResult">YOU FEEL {{ result }}!</p>
+            <p class="feelingResult">You Feel {{ result }}!</p>
+            <button  class="button-87" >SHARE ON SNS</button>
             <div class="feelingText">
-                <p class="feelingRate">DISGUST: 0.35%</p>
-                <p class="feelingRate">SAD: 0.235%</p>
-                <p class="feelingRate">TIRED: 0.54%</p>
-                <p class="feelingRate">HAPPY: 0.78%</p>
             </div>
 
         </div>
@@ -181,21 +235,13 @@ table.type04 td {
             <h1 class="resultSlogan">YOU WANT THIS!</h1>
 
 
-            <img src="{{ url_for('static', filename=image_file) }}">
+            <img src="{{ url_for('static', filename=image_file) }}" class="foodEmoji">
             <table class="type04">
                 {% for place in data['results'] %}
               <tr>
                 <th scope="row">{{ place['name'] }}</th>
                 <td>{{ place['vicinity'] }}</td>
               </tr>
-{#              <tr>#}
-{#                <th scope="row">항목명</th>#}
-{#                <td>내용이 들어갑니다.</td>#}
-{#              </tr>#}
-{#              <tr>#}
-{#                <th scope="row">항목명</th>#}
-{#                <td>내용이 들어갑니다.</td>#}
-{#              </tr>#}
                 {% endfor %}
             </table>
 
