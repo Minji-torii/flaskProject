@@ -4,6 +4,8 @@ from flask import Flask, render_template, send_from_directory, url_for, request,
 import requests
 import base64
 
+import cv2
+
 from flask_uploads import UploadSet, IMAGES, configure_uploads
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired, FileAllowed
@@ -77,7 +79,21 @@ def search():
     print(Fuck[1:])
     uploaded_image = Fuck[1:]
     file_path = Fuck[1:]
-    with open(file_path, "rb") as image_file:
+
+    # Load the image and convert it to grayscale
+    image = cv2.imread(file_path)
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+    faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+    faces = faceCascade.detectMultiScale(gray, 1.2, 8)
+    for (x, y, w, h) in faces:
+        grayImage = gray[y:y + h, x:x + w]
+
+    # Save the grayscale image to a temporary file
+    temp_file = "temp_gray.png"
+    cv2.imwrite(temp_file, gray)
+
+    with open(temp_file, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read()).decode("utf-8")
     image_data = f"data:image/png;base64,{encoded_string}"
 
