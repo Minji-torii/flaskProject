@@ -156,6 +156,12 @@ input#submit {
 .any{
     position: absolute;
     z-index: 5;
+    top: 94%;
+    left: 50%;
+    transform: translate(-50%);
+    border: none;
+    color: white;
+    background: orange;
 }
 input[type=file]::file-selector-button {
    padding: 12px 80px;
@@ -349,14 +355,11 @@ display: none;
 
                 </form>
                 <form action='/result' method="post">
-                    <button type="button" onclick="getLocation()" class="any">Use Current Location</button>
+                    <button type="button" onclick="getLocation()" class="any">Agree With Use Current Location</button>
                     <input type="hidden" name="current_location" id="current_location">
                     <button type="submit" class="button-87" >check!</button>
                 </form>
 
-                <form action='/search' method="post">
-                    <button class="testing" onclick="tisbtnIsect()">For model</button>
-                </form>
 
 </section>
 <script>
